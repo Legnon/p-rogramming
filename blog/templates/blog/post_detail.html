@@ -9,15 +9,24 @@
 </head>
 
 <body>
+{{post.photo.url}}
     <table>
         <tbody>
-            {% for post in post_list %}
             <tr>
-                <td>
-                    <a href="{% url 'blog:post_detail' post.pk %}"> {{ post.title }} </a>
-                </td>
+                <td>{{ post.title }}</td>
             </tr>
-            {% endfor %}
+            <tr>
+                <td>{{ post.content }}</td>
+            </tr>
+            <tr>
+                <td><img src="./1.png"></td>
+            </tr>
+            <tr>
+                <td>{{ post.created_at }}</td>
+            </tr>
+            <tr>
+                <td>{{ post.updated_at }}</td>
+            </tr>
         </tbody>
     </table>
 </body>
