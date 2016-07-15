@@ -1,3 +1,4 @@
+{% load bootstrap3 %}
 <!doctype html>
 <html>
 
@@ -9,17 +10,34 @@
 </head>
 
 <body>
-    <table>
+    <a href="{% url 'blog:post_add' %}" class="btn btn-primary pull-right">글 추가</a>
+    <hr>
+    <div class="container">
+    <div class="row">
+    <table class="table table-striped">
         <tbody>
+            <tr>
+                <th>title</th>
+                <th>created_at</th>
+                <th>updated_at</th>
+            </tr>
             {% for post in post_list %}
             <tr>
                 <td>
                     <a href="{% url 'blog:post_detail' post.pk %}"> {{ post.title }} </a>
                 </td>
+                <td>
+                    {{ post.created_at}}
+                </td>
+                <td>
+                    {{ post.updated_at }}
+                </td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
+    </div>
+    </div>
 </body>
 
 </html>

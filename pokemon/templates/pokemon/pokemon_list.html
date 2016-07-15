@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>pokelist</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" type="text/css">
+</head>
+<body>
+<div class="container">
+    <table class="table table-striped">
+        <tr>
+            <th>포켓몬</th>
+            <th>속성</th>
+            <th>이미지</th>
+            <th>잡은 트레이너</th>
+        </tr>
+        <tr>
+        {# 이상해씨 잡은 사람 있을때 #}
+        {%if bulbasaur.count%}
+            <td>
+                {{bulbasaur.first.category}}<br>
+            </td>
+            <td class="attr">
+                {%for attr in bulbasaur.first.attribute%}
+                    {{attr}}<br>
+                {%endfor%}
+            </td>
+            <td><img src="{{bulbasaur.first.url}}"></td>
+            <td>
+            {%for poke in bulbasaur%}
+                {{poke.name}}, {{poke.trainer}}, {{poke.location}}<br>
+            {%endfor%}
+            </td>
+        {# 이상해씨 잡은 사람 없을때 #}
+        {%else%}
+            <td>
+                {{bulbasaur.category}}<br>
+            </td>
+            <td class="attr">
+                {%for attr in bulbasaur.attribute%}
+                    {{attr}}<br>
+                {%endfor%}
+            </td>
+            <td><img src="{{bulbasaur.url}}"></td>
+            <td></td>
+        {%endif%}
+        </tr>
+        <tr>
+        {# 파이리 잡은 사람 있을때 #}
+        {%if charmander.count%}
+            <td>
+                {{charmander.first.category}}<br>
+            </td>
+            <td class="attr">
+                {%for attr in charmander.first.attribute%}
+                    {{attr}}<br>
+                {%endfor%}
+            </td>
+            <td><img src="{{charmander.first.url}}"></td>
+            <td>
+            {%for poke in charmander%}
+                {{poke.name}}, {{poke.trainer}}, {{poke.location}}<br>
+            {%endfor%}
+            </td>
+        {# 파이리 잡은 사람 없을때 #}
+        {%else%}
+            <td>
+                {{charmander.category}}<br>
+            </td>
+            <td class="attr">
+                {%for attr in charmander.attribute%}
+                    {{attr}}<br>
+                {%endfor%}
+            </td>
+            <td><img src="{{charmander.url}}"></td>
+            <td></td>
+        {%endif%}
+        </tr>
+        <tr>
+        {# 꼬부기 잡은 사람 있을때 #}
+        <br>
+        {%if squirtle.count%}
+            <td>
+                {{squirtle.first.category}}<br>
+            </td>
+            <td class="attr">
+                {%for attr in squirtle.first.attribute%}
+                    {{attr}}<br>
+                {%endfor%}
+            </td>
+            <td><img src="{{squirtle.first.url}}"></td>
+            <td>
+            {%for poke in squirtle%}
+                {{poke.name}}, {{poke.trainer}}, {{poke.location}}<br>
+            {%endfor%}
+            </td>
+        {# 꼬부기 잡은 사람 없을때 #}
+        {%else%}
+            <td>
+                {{squirtle.category}}<br>
+            </td>
+            <td class="attr">
+                {%for attr in squirtle.attribute%}
+                    {{attr}}<br>
+                {%endfor%}
+            </td>
+            <td><img src="{{squirtle.url}}"></td>
+            <td>
+            {%for poke in squirtle%}
+                {{poke.name}}, {{poke.trainer}}, {{poke.location}}<br>
+            {%endfor%}
+            </td>
+        {%endif%}
+        </tr>
+    </table>
+</div>\
+</body>
+</html>

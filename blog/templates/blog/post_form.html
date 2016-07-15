@@ -1,0 +1,21 @@
+{% load bootstrap3 %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>post 추가 페이지</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+<div class="col-sm-6 col-sm-offset-3">
+<form role="form" method="POST" enctype="multipart/form-data" action="">
+{% csrf_token %}
+{% bootstrap_form form %}
+<button type="submit" class="btn btn-primary">제출</button>
+{{form.errors}}
+{{form.non_field_errors}}
+</form>
+</div>
+</div>
+</body>
+</html>
