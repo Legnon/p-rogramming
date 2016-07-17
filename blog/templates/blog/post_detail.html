@@ -10,25 +10,35 @@
 </head>
 
 <body>
-    <table>
-        <tbody>
-            <tr>
-                <td>{{ post.title }}</td>
-            </tr>
-            <tr>
-                <td>{{ post.content }}</td>
-            </tr>
-            <tr>
-                <td><img src="{{post.photo.url}}"></td>
-            </tr>
-            <tr>
-                <td>{{ post.created_at }}</td>
-            </tr>
-            <tr>
-                <td>{{ post.updated_at }}</td>
-            </tr>
-        </tbody>
-    </table>
+<br><br>
+<div class="container">
+    <div class="col-sm-12">
+        <table class="table table-striped">
+            <tbody>
+                <tr>
+                    <th>제목</th>
+                    <td>{{ post.title }}</td>
+                </tr>
+                <tr>
+                    <th>내용</th>
+                    <td>{{ post.content }}</td>
+                </tr>
+                <tr>
+                    <th>사진</th>
+                    <td><img src="{{post.photo.url}}"></td>
+                </tr>
+                <tr>
+                    <th>작성일시</th>
+                    <td>{{ post.created_at|date:'Y-m-d H:m' }}</td>
+                </tr>
+                <tr>
+                    <th>최종수정일시</th>
+                    <td>{{ post.updated_at|date:'Y-m-d H:m' }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
 </body>
 
 </html>

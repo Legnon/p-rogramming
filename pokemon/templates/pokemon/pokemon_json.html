@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>json</title>
+    <script src="https://code.jquery.com/jquery-1.12.1.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" type="text/css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script>
+    var poke = {{pokemon|safe}} // |safe가 없으면 '가 &#39;로 됨
+    $(document).ready(function(){
+        for (i = 1; i< 152; i++){
+            pk = poke[i.toString()]
+            if (pk){
+                $('.poke').append('<tr>'
+                    +'<td>'+pk.name+'</td>'
+                    +'<td>'+pk.attack+'</td>'
+                    +'<td>'+pk.defense+'</td>'
+                    +'<td>'+(pk.evolveLevel?pk.evolveLevel:'')+'</td>'
+                    +'<td>'+(pk.evolveTo?pk.evolveTo:'')+'</td>'
+                    +'<td>'+pk.type+'</td>'
+                    +'<td>'+(pk.moves[0]?pk.moves[0]:'')+'</td>'
+                    +'<td>'+(pk.moves[1]?pk.moves[1]:'')+'</td>'
+                    +'<td>'+(pk.moves[2]?pk.moves[2]:'')+'</td>'
+                    +'<td>'+(pk.moves[3]?pk.moves[3]:'')+'</td>'
+                    +'</tr>')
+            }
+        }
+    })
+
+    </script>
+</head>
+<body>
+<div class="container">
+<table class="poke table table-striped table-hover">
+    <tr>
+        <th>name</th>
+        <th>attack</th>
+        <th>defense</th>
+        <th>evolveLevel</th>
+        <th>evolveTo</th>
+        <th>type</th>
+        <th>skill 1</th>
+        <th>skill 2</th>
+        <th>skill 3</th>
+        <th>skill 4</th>
+    </tr>
+</table>
+</div>
+</body>
+</html>

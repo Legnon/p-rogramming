@@ -48,3 +48,6 @@ class Bulbasaur(Pokemon):
     def __str__(cls):
         return cls.name
 
+class Pokemon_crawling(models.Model):
+    name = models.CharField(max_length=20)
+    url = models.URLField()
