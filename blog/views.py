@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponse
 from django.views.generic import ListView, DetailView
 from blog.models import Post
 from .forms import PostForm
@@ -21,3 +21,11 @@ def post_add(request):
         form = PostForm()
         content = {'form':form}
         return render(request, 'blog/post_form.html', content)
+
+# y나 z가 있으면 그걸 받고 아니면 기본값 0
+def sum1(request, x, y=0, z=0):
+    return HttpResponse(int(x)+int(y)+int(z))
+
+def sum2(request, x):
+    result = sum(int(i) for i in x.split('/'))
+    return HttpResponse(result)
