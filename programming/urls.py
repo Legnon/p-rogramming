@@ -8,6 +8,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^about/$', views.introduce),
     url(r'^pokemon/', include('pokemon.urls', namespace='pokemon')),
+    url(r'^cbv/', include('cbvexample.urls', namespace='cbv')),
     url(r'^', include('blog.urls', namespace='blog')),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

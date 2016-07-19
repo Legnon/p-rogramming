@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>list</title>
+</head>
+<body>
+{%for poke in capture%}
+{{poke.trainer.name}}, {{poke.pokemon.category.category}}, {{poke.pokemon.level}}, <img src="{{poke.pokemon.category.url}}"><br>
+{%endfor%}
+</body>
+</html>

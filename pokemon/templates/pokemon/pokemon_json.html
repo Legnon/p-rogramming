@@ -12,11 +12,12 @@
             pk = poke[i.toString()]
             if (pk){
                 $('.poke').append('<tr>'
+                    +'<td>'+i+'</td>'
                     +'<td>'+pk.name+'</td>'
                     +'<td>'+pk.attack+'</td>'
                     +'<td>'+pk.defense+'</td>'
                     +'<td>'+(pk.evolveLevel?pk.evolveLevel:'')+'</td>'
-                    +'<td>'+(pk.evolveTo?pk.evolveTo:'')+'</td>'
+                    +'<td>'+(pk.evolveTo?pk.evolveTo3:'')+'</td>'
                     +'<td>'+pk.type+'</td>'
                     +'<td>'+(pk.moves[0]?pk.moves[0]:'')+'</td>'
                     +'<td>'+(pk.moves[1]?pk.moves[1]:'')+'</td>'
@@ -33,6 +34,7 @@
 <div class="container">
 <table class="poke table table-striped table-hover">
     <tr>
+        <th>number</th>
         <th>name</th>
         <th>attack</th>
         <th>defense</th>
