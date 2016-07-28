@@ -2,17 +2,24 @@ import re
 from django.db import models
 from django.utils import timezone
 from django.forms import ValidationError
+from .validators import MinLengthValidator, lnglat_validator
 
-# Create your models here.
 
-def lnglat_validator(lnglat):
-    if not re.match(r'^(\d+\.?\d*),(\d+\.?\d*)$', lnglat):
-        raise ValidationError('Invalid Lnglat Type')
+min_length3_validator = MinLengthValidator(3)
+
+
+class Tag(models.Model):
+    name = models.CharField(max_length=20)
+
+    def __str__(cls):
+        return cls.name
+
 
 class Post(models.Model):
-    title = models.CharField(max_length=100, verbose_name='제목')
+    title = models.CharField(max_length=100, verbose_name='제목', validators=[min_length3_validator])
     content = models.TextField(help_text='Mark Down 문법을 써주세요')
-    tags = models.CharField(max_length=100,blank=True)
+    tags = models.ManyToManyField(Tag, blank=True)
+    # tags = models.CharField(max_length=10)
     photo = models.ImageField(blank=True)
     lnglat = models.CharField(max_length=50, validators=[lnglat_validator], help_text='경도, 위도 포맷으로 입력')
     created_at = models.DateTimeField(default=timezone.now)
@@ -21,3 +28,4 @@ class Post(models.Model):
 
     def __str__(cls):
         return cls.title
+
