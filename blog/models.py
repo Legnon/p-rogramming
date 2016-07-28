@@ -3,7 +3,7 @@ from django.db import models
 from django.utils import timezone
 from django.forms import ValidationError
 from .validators import MinLengthValidator, lnglat_validator
-
+from .fields import PhoneNumberField
 
 min_length3_validator = MinLengthValidator(3)
 
@@ -28,4 +28,13 @@ class Post(models.Model):
 
     def __str__(cls):
         return cls.title
+
+
+class Contact(models.Model):
+    name = models.CharField(max_length=10)
+    phone_num = PhoneNumberField()
+
+    def __str__(cls):
+        return cls.name
+
 

@@ -26,3 +26,7 @@ def lnglat_validator(lnglat):
     if not re.match(r'^(\d+\.?\d*),(\d+\.?\d*)$', lnglat):
         raise ValidationError('Invalid Lnglat Type')
 
+
+def phone_number_validator(value):
+    if not re.match(r'^01[06789][1-9]\d{6,7}$', value):
+        raise ValidationError('휴대폰 번호를 입력해주세요.')
