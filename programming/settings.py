@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'webtoon',
     'pokemon',
+    'xmltodict',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -104,6 +105,8 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+EPOST_API_KEY = '6815602e275c57fd91470021509216'
 
 
 # Internationalization

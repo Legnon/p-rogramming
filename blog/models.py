@@ -2,11 +2,11 @@ import re
 from django.db import models
 from django.utils import timezone
 from django.forms import ValidationError
-from .validators import MinLengthValidator, lnglat_validator
+from .validators import MinLengthValidator, lnglat_validator, phone_number_validator, zipcode_validator
 from .fields import PhoneNumberField
 
-min_length3_validator = MinLengthValidator(3)
 
+min_length3_validator = MinLengthValidator(3)
 
 class Tag(models.Model):
     name = models.CharField(max_length=20)
@@ -41,7 +41,7 @@ class Comment(models.Model):
 
 class Contact(models.Model):
     name = models.CharField(max_length=10)
-    phone_num = PhoneNumberField()
+    phone_num = PhoneNumberField(validators=[phone_number_validator])
 
     def __str__(cls):
         return cls.name
@@ -52,4 +52,6 @@ class ZipCode(models.Model):
     road = models.CharField(max_length=20)
     dong = models.CharField(max_length=20)
     gu = models.CharField(max_length=20)
-    code = models.CharField(max_length=7)
+    code = models.CharField(max_length=7, validators=[zipcode_validator()])
+
+
