@@ -29,6 +29,14 @@ class Post(models.Model):
     def __str__(cls):
         return cls.title
 
+class Comment(models.Model):
+    post = models.ForeignKey(Post)
+    message = models.TextField()
+    author = models.CharField(max_length=20, validators=[MinLengthValidator(4)])
+
+    def __str__(cls):
+        return cls.post.name + cls.id
+
 
 class Contact(models.Model):
     name = models.CharField(max_length=10)
