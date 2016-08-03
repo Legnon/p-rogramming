@@ -29,6 +29,7 @@ class Post(models.Model):
     def __str__(cls):
         return cls.title
 
+
 class Comment(models.Model):
     post = models.ForeignKey(Post)
     message = models.TextField()
@@ -46,3 +47,9 @@ class Contact(models.Model):
         return cls.name
 
 
+class ZipCode(models.Model):
+    city = models.CharField(max_length=20)
+    road = models.CharField(max_length=20)
+    dong = models.CharField(max_length=20)
+    gu = models.CharField(max_length=20)
+    code = models.CharField(max_length=7)
